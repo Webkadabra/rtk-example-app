@@ -10,7 +10,7 @@ const initialState = {
   status: 'idle',
   library: [],
   filteredLibrary: [],
-  bookDetails: [],
+  bookDetails: {},
   searchQuery: '',
 };
 
@@ -44,6 +44,14 @@ export const booksSlice = createSlice({
       state.bookDetails = action.payload;
     },
 
+    resetBookDetails: (state) => {
+      state.bookDetails = {};
+    },
+
+    resetBookLibrary: (state) => {
+      state.library = [];
+    },
+
     filterBookList: (state, action) => {
       state.searchQuery = action.payload;
       state.filteredLibrary = state.library.filter(
@@ -72,7 +80,7 @@ export const booksSlice = createSlice({
   },
 });
 
-export const { filterBookList } = booksSlice.actions;
+export const { filterBookList, resetBookDetails, resetBookLibrary } = booksSlice.actions;
 
 export const selectBooks = (state) => state.books.library;
 

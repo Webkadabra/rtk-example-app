@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {
-    fetchBooksLibrary,
+    fetchBooksLibrary, resetBookLibrary,
     selectBooks,
     selectBooksFiltered,
     selectBooksSearchQuery,
@@ -20,8 +20,12 @@ export function Books() {
 
     useEffect(() => {
         dispatch(fetchBooksLibrary(params.authorName))
+        return () => {
+            dispatch(resetBookLibrary())
+        }
     }, [
         params.authorName,
+        dispatch,
     ]);
 
     return <List books={searchQuery ? filteredLibrary : library}/>;
