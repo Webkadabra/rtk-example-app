@@ -10,12 +10,12 @@ export default function List({books})
 {
     const status = useSelector(selectStatus);
 
-    return <>
+    return <div>
         <Search />
         {Status.loading === status && (
             <Loader />
         )}
-        {Status.loading !== status && (
+        {Status.idle === status && (
             books.map(({title, author, link, pages, year}, index) =>
                 <ListItem
                     title={title}
@@ -28,5 +28,5 @@ export default function List({books})
             )
         )}
 
-    </>
+    </div>
 }

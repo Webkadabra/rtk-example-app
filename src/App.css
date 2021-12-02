@@ -17,10 +17,9 @@
 .App-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  align-items: start;
+  align-items: flex-start;
 }
 
 .App-link {
@@ -32,8 +31,8 @@
   justify-content: center;
 }
 .loader {
-  border: 3px solid hsla(185, 100%, 62%, 0.2);
-  border-top-color: #3cefff;
+  border: 3px solid hsla(271, 100%, 65%, 0.2);
+  border-top-color: #551a8b;
   border-radius: 50%;
   width: 3em;
   height: 3em;
